@@ -1,0 +1,9 @@
+{% if is_preview %}
+  <div class="frontend-styles">
+{% endif %}
+
+{% block blockContent %}{% endblock %}
+
+{% if is_preview %}
+  </div>
+{% endif %}

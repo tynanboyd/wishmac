@@ -1,0 +1,102 @@
+// single project styles
+.project {
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 0;
+    border-bottom: 1px solid $highlight;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+
+    @include MQ(M) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__donation {
+    text-align: left;
+
+    @include MQ(M) {
+      text-align: right;
+    }
+  }
+
+  &__donation-button {
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  &__donation-amount {
+    display: block;
+  }
+
+  &__versions {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $highlight;
+  }
+
+  &__synopsis {
+    margin-bottom: 2rem;
+  }
+
+  &__main-content-area {
+    padding-top: 2rem;
+  }
+
+  &__creative-team {
+    word-break: break-word;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $highlight;
+
+    &-item {
+      margin-bottom: 1rem;
+    }
+
+    &-heading {
+      margin-bottom: 2rem;
+    }
+
+    &-name {
+      font-weight: bold;
+      display: block;
+    }
+
+    &-position {
+
+    }
+  } // creative team
+
+  &__funders {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__funder-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__festival-logos {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 2rem;
+  }
+
+  &__additional-information {
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid $highlight;
+  }
+
+  &__comments {
+
+  }
+}

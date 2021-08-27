@@ -1,0 +1,45 @@
+<header class="site-header sticky-top">
+  <a class="site-header__logo-link" href="{{ site.link }}"><h1 class="site-header__logo-text">{{ site.title }}</h1></a>
+  <nav>
+    <ul class="primary-navigation .list-inline d-none d-lg-flex">
+      {% for item in main_menu.get_items %}
+        {% if item.get_children %}
+          <li class="{{ item.classes | join(' ') }} dropdown nav-item primary-navigation__item list-inline-item">
+            <a
+              class="nav-link dropdown-toggle color--white primary-navigation__link"
+              href="{{ item.link }}"
+              id="{{ item.title|sanitize }}"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              {{ item.title }}
+            </a>
+            <ul
+              class="dropdown-menu primary-navigation__dropdown"
+              aria-labelledby="{{ item.title|sanitize }}"
+            >
+              {% for child in item.get_children %}
+                <li class="nav-drop-item primary-navigation__dropdown-item {{ child.classes | join(' ')}}">
+                  <a class="primary-navigation__dropdown-item-link" href="{{ child.link }}">{{ child.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li class="list-inline-item nav-item primary-navigation__item {{ item.classes | join(' ') }}">
+            <a class="nav-link color--white primary-navigation__link" href="{{ item.link }}">{{ item.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <button class="hamburger hamburger--collapse d-lg-none js-mobile-nav-trigger" type="button" aria-label="Menu" aria-controls="navigation" aria-expanded="true/false">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    {% include 'partials/mobile-navigation.twig' %}
+    <div class="js-mobile-nav-overlay"></div>
+  </nav>
+</header>

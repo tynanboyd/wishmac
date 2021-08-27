@@ -1,0 +1,54 @@
+{#
+/**
+* Block Name: Festival
+*
+* This is the template that displays a festival with a gallery
+*/
+#}
+
+{% extends 'templates/template-parts/blocks/base-block.twig' %}
+
+{% block blockContent %}
+<section class="contentblock festival">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-12 col-md-3">
+        {% if fields.festival_name %}
+          <h2 class="contentblock__section-heading">{{ fields.festival_name }}</h2>
+        {% endif %}
+        {% if fields.festival_location %}
+          <span class="contentblock__section-heading">{{ fields.festival_location }}</span>
+        {% endif %}
+        {% if fields.festival_laurels %}
+          <div class="festival__laurels">
+            {% for image in fields.festival_laurels %}
+              <div class="festival__laurel-wrap">
+                <img class="festival__laurel" src="{{ image.url|resize(200) }}">
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      {% if is_preview %}
+        Click to edit the gallery.
+      {% else %}
+      <div class="col-12 col-md-8">
+        <div class="gallery">
+          {# TODO replace with lightbox like pikiswespeak tour stops, but larger #}
+          <div class="festival__gallery gallery__main js-gallery">
+            {% for image in fields.festival_gallery %}
+              <img class="gallery__image" src="{{ image.url|resize(720,480) }}">
+              {% if image.caption %}
+                <figcaption>
+                  <em>{{ image.caption }}</em>
+                </figcaption>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

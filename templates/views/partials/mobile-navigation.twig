@@ -1,0 +1,38 @@
+<div class="mobile-nav-container js-mobile-nav-container mobile-nav">
+  <nav class="mobile-nav__menu--wrap">
+    <ul class="flex-column nav mobile-nav__menu">
+      {% for item in main_menu.get_items %}
+        {% if item.get_children %}
+          <li class="{{ item.classes | join(' ') }} nav-item mobile-nav__item">
+            <a
+              class="dropdown-toggle color--white mobile-nav__link"
+              href="#mobile-menu--{{ item.title|sanitize }}"
+              role="button"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+              id="{{ item.title|sanitize }}-tab"
+            >
+              {{ item.title }}
+            </a>
+            <ul
+              class="collapse mobile-nav__dropdown flex-column mobile-nav__menu"
+              id="mobile-menu--{{ item.title|sanitize }}"
+              aria-labelledby="{{ item.title|sanitize }}-tab"
+            >
+            {% for child in item.get_children %}
+              <li class="mobile-nav__dropdown-item {{ child.classes | join(' ')}}">
+                <a class="color--theme-main mobile-nav__link mobile-nav__link--dropdown-item" href="{{ child.link }}">{{ child.title }}</a>
+              </li>
+            {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li class="{{ item.classes | join(' ') }} nav-item mobile-nav__item">
+            <a class="mobile-nav__link color--white" href="{{ item.link }}">{{ item.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,9 @@
+.post-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+
+  @include MQ(M) {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+}

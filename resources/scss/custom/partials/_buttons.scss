@@ -1,0 +1,35 @@
+.button {
+  // button styles
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: $highlight;
+  color: white;
+  padding: 0.7rem 1rem;
+  font-family: $font-regular, 'system-ui', 'helvetica', sans-serif;
+  border-radius: 5px;
+  letter-spacing: 1.3px;
+  font-size: 0.8375rem;
+  border: none;
+  line-height: 1;
+  transition: background-color 0.2s ease;
+
+  &:hover,
+  &:active {
+    // button hover styles
+    color: white;
+    background-color: darken($highlight, 5%);
+    text-decoration: none;
+  }
+
+  &--secondary {
+    // secondary
+
+    &:hover {
+      // secondary hover
+    }
+  }
+
+  &--large {
+    // large button styles
+  }
+}

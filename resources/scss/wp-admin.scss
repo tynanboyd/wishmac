@@ -1,0 +1,36 @@
+/* admin-styles.css */
+
+/* Increase width of Admin Menu */
+
+#adminmenu,
+#adminmenu .wp-submenu,
+#adminmenuback, #adminmenuwrap {
+  width: 175px;
+}
+
+#wpcontent, #wpfooter {
+  margin-left: 175px;
+}
+
+/* Gutenberg Editor Styles */
+
+$block-width: 775px;
+$block-width-wide: 1200px;
+
+.wp-block {
+  max-width: $block-width-wide;
+}
+
+.wp-block[data-type*="core"],
+.edit-post-visual-editor .editor-post-title__block {
+  max-width: $block-width;
+}
+
+.wp-block[data-type="acf/intro-text"] {
+  max-width: $block-width + 30px;
+}
+
+// @import 'custom/variables';
+// @import 'vendor/bootstrap';
+// @import 'custom/partials';
+

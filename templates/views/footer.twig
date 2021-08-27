@@ -1,0 +1,22 @@
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__inner d-flex justify-content-between">
+        <div class="site-footer__colophon">
+          Beth Wishart MacKenzie / Wishmac Productions {% if options.email %}<a class="site-footer__email" href="mailto:{{ options.email }}">{{ options.email }}</a>{% endif %}
+        </div>
+        <div class="site-footer__social d-flex">
+          {% if options.email %}<a class="site-footer__social-link"  href="mailto:{{ options.email }}"><i class="fa fa-envelope"></i></a>{% endif %}
+          {% if options.facebook %}<a class="site-footer__social-link" target="_blank" href="{{ options.facebook }}"><i class="fab fa-facebook-f"></i></a>{% endif %}
+          {% if options.vimeo %}<a class="site-footer__social-link" target="_blank" href="{{ options.vimeo }}"><i class="fab fa-vimeo-v"></i></a>{% endif %}
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/62f5b3df13.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+  {{ wp_footer }}
+
+</body>
+</html>

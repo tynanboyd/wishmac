@@ -1,0 +1,35 @@
+.initiative {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid $highlight;
+
+  &__featured-image-wrapper {
+
+  }
+
+  &__featured-image {
+    object-fit: cover;
+  }
+
+  &__title {
+
+  }
+
+  &__description {
+
+  }
+
+  &__gallery {
+
+  }
+
+  &__gallery-image {
+    width: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    @include MQ(L) {
+      width: 125px;
+    }
+  }
+}

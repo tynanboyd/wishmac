@@ -1,0 +1,37 @@
+.site-footer {
+  color: $faint;
+
+  &:hover {
+    color: $black;
+
+    .site-footer__social-link {
+      color: $black;
+    }
+  }
+
+  &__email {
+    color: $highlight;
+
+    &:hover {
+      color: $highlight;
+    }
+  }
+
+  &__inner {
+    border-top: 1px solid $highlight;
+    padding: 2rem 0;
+  }
+
+  &__social {
+
+  }
+
+  &__social-link {
+    margin-left: 2rem;
+    color: $faint;
+
+    &:hover {
+      color: $highlight;
+    }
+  }
+}

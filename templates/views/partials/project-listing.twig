@@ -1,0 +1,8 @@
+<a class="projects__project-link" href="{{ project.link }}">
+  <article class="projects__item">
+    <div class="projects__overlay">
+      <img class="projects__project-thumbnail" src="{{ project.thumbnail|resize(533, 300) }}" alt="{{ project.thumbnail.alt }}">
+    </div>
+    <h4 class="projects__project-title">{{ project.title }}</h4>
+  </article>
+</a>

@@ -1,0 +1,42 @@
+{#
+/**
+* Block Name: Initiatve
+*
+* This is the template that displays initiatives
+*/
+#}
+
+{% extends 'templates/template-parts/blocks/base-block.twig' %}
+
+{% block blockContent %}
+
+<section class="contentblock initiative">
+  <div class="container">
+    <div class="row justify-content-between">
+      {% if fields.featured_image %}
+        <div class="col-12 col-lg-4">
+          <div class="initiative__featured-image-wrapper">
+            <img class="initiative__featured-image" src="{{ TimberImage(fields.featured_image)|resize(400) }}" alt="{{ fields.featured_image.alt }}">
+          </div>
+        </div>
+      {% endif %}
+      <div class="col-12 col-lg-8">
+        {% if fields.title %}
+          <h2 class="contentblock__section-heading">{{ fields.title }}</h2>
+          <div class="initiative__description">{{ fields.description }}</div>
+        {% endif %}
+        {% if not is_preview %}
+          {% if fields.gallery %}
+            <div class="initiative__gallery">
+              {% for image in fields.gallery %}
+                <a data-caption="{{ image.caption }}" data-fancybox="gallery-{{ fields.title|sanitize }}" href="{{ TimberImage(image.url) }}"><img class="initiative__gallery-image" src="{{ TimberImage(image.url)|resize(400,300) }}" alt="{{ image.alt }}"></a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

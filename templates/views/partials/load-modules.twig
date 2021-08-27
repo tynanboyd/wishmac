@@ -1,0 +1,4 @@
+{# load-modules.twig #}
+{% for module in post.meta('content_blocks') %}
+  {% include 'partials/modules/' ~ module.acf_fc_layout ~ '.twig' with { 'module': module, 'module_index': loop.index } %}
+{% endfor %}

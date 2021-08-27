@@ -1,0 +1,41 @@
+// project list styles
+.projects {
+
+  &__item {
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  &__overlay {
+    position: relative;
+
+    &:after {
+     @extend .overlay;
+     opacity: 0;
+     transition: opacity 0.2s ease;
+     background: transparentize($highlight, 0.5);
+    }
+
+    &:hover {
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__project-link {
+    text-decoration: none !important;
+  }
+
+  &__project-title {
+    font-size: 1rem;
+    font-family: $font-regular;
+  }
+
+  &__project-thumbnail {
+    display: block;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    width: 100%;
+  }
+}

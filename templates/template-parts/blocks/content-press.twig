@@ -1,0 +1,27 @@
+{#
+/**
+* Block Name: Press
+*
+* This is the template that displays press items
+*/
+#}
+
+{% extends 'templates/template-parts/blocks/base-block.twig' %}
+
+{% block blockContent %}
+
+<section class="contentblock press">
+  <div class="container">
+    <div class="row align-justify">
+      <div class="col-12 col-md-7 press__column">
+        {% if fields.heading %}
+          <h2 class="contentblock__section-heading press__heading">{{ fields.heading }}</h2>
+          {% if fields.date %}<span class="date">{{ fields.date }}</span>{% endif %}
+          {% if fields.content %}<p>{{ fields.content }}</p>{% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

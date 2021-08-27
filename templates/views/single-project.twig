@@ -1,0 +1,126 @@
+{% extends 'base.twig' %}
+
+{% block headerClasses %}project__header{% endblock %}
+
+{% block donations %}
+  <div class="project__donation">
+    {% set donation = post.meta('donation') %}
+    {% if donation.include_button %}
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="KJ26JUQCW2T6G" />
+        <button class="button project__donation-button"><i class="fab fa-paypal"></i> Donate</button>
+      </form>
+    {% endif %}
+    {% if donation.donation_recommendations %}
+      <h3>Donation Recommendations</h3>
+      <div class="flex-column">
+        {% for item in donation.donation_recommendations %}
+          <span class="project__donation-amount">{{ item.recommendation }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% block pageContent %}
+
+  <section class="project__embeds container">
+    <div class="row">
+      <div class="col-12 col-sm-6">
+        <h3 class="project__embeds-heading">{{ post.video_1_heading }}</h3>
+        {% if post.meta('video_one') %}
+          <div class="project__embed responsive-embed">
+            {{ post.meta('video_one') }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="col-12 col-sm-6">
+        <h3 class="project__embeds-heading">{{ post.video_2_heading }}</h3>
+        {% if post.meta('video_two') %}
+          <div class="project__embed responsive-embed">
+            {{ post.meta('video_two') }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <main class="container page-content-padding page-content">
+    {% if post.meta('links_to_versions') %}
+      <div class="row">
+        <div class="col-12 col-md-6 offset-md-1">
+          <div class="project__versions">
+            <h3>Versions</h3>
+            {% for item in post.meta('links_to_versions') %}
+              <a href="{{ item.link.url }}">{{ item.link.title }}{{ not loop.last ? ', ' }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    <div class="row project__main-content-area">
+      <div class="col-12 col-md-6 offset-md-1">
+        {% if post.meta('synopsis') %}
+          <section class="project__synopsis">
+            <h2>Synopsis</h2>
+            {{ post.meta('synopsis') }}
+          </section>
+        {% endif %}
+        {% if post.meta('festival_logos') %}
+          <section class="project__festival-logos">
+            {% for item in post.meta('festival_logos') %}
+              {% if item.link %}
+                <a href="{{ item.link }}">
+              {% endif %}
+              <img class="project__festival-logo" src="{{ Image(item.logo)|resize(150) }}"
+              {% if item.link %}
+                </a>
+              {% endif %}
+            {% endfor %}
+          </section>
+        {% endif %}
+        {% if post.meta('additional_information') %}
+          <section class="project__additional-information">
+            {{ post.meta('additional_information') }}
+          </section>
+        {% endif %}
+      </div>
+      <div class="col-12 col-md-3 offset-md-1">
+        {% if post.meta('creative_team') %}
+          <div class="project__creative-team">
+            <h3 class="project__creative-team-heading">Creative Team</h3>
+            <div class="flex-column">
+              {% for item in post.meta('creative_team') %}
+                <div class="project__creative-team-item">
+                  <span class="project__creative-team-name">{{ item.name }}</span>
+                  <span class="project__creative-team-position">{{ item.position }}</span>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        {% if post.meta('funders') %}
+          <h3>Funders</h3>
+          <div class="project__funders">
+            {% for item in post.meta('funders') %}
+              <div class="project__funder-item">
+                {% if item.link %}
+                  <a href="{{ item.link }}">
+                {% endif %}
+                <img class="projects__funder-logo" src="{{ Image(item.logo) }}">
+                {% if item.link %}
+                  </a>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="col-12 col-md-10 offset-md-1">
+        {% include 'partials/comments-section.twig' %}
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

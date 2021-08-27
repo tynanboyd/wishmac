@@ -1,0 +1,29 @@
+{#
+/**
+* Block Name: Projects
+*
+* This is the template that displays selected projects
+*/
+#}
+
+{% extends 'templates/template-parts/blocks/base-block.twig' %}
+
+{% block blockContent %}
+
+<section class="contentblock projects">
+  <div class="container">
+    {% if fields.section_heading %}
+      <h2 class="contentblock__section-heading">{{ fields.section_heading }}</h2>
+    {% endif %}
+    <div class="row">
+      {% for item in fields.projects %}
+        {% set project = Post(item.project) %}
+        <div class="col-6">
+          {% include 'partials/project-listing.twig' %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

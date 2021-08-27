@@ -1,0 +1,27 @@
+.comments {
+
+  label {
+    display: block;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button {
+    display: inline-block;
+    max-width: 200px;
+    margin: 1rem 0;
+  }
+
+  &__form-section {
+    margin-bottom: 2rem;
+  }
+
+  &__comment {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #F5F5F5;
+  }
+}

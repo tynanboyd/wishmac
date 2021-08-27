@@ -1,0 +1,10 @@
+.fancybox {
+
+  &-caption__body {
+    font-size: 1.25rem;
+
+    @include MQ(M) {
+      margin-top: -50px;
+    }
+  }
+}

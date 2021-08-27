@@ -1,0 +1,13 @@
+{% extends 'base.twig' %}
+
+{% block pageContent %}
+  <main class="container page-content-padding page-content">
+    <div class="row">
+      {% for project in posts %}
+        <div class="col-6">
+          {% include 'partials/project-listing.twig' %}
+        </div>
+      {% endfor %}
+    </div>
+  </main>
+{% endblock %}
